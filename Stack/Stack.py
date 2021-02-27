@@ -9,8 +9,8 @@ class Stack():
         if not self.is_empty():
             return self.items.pop()
 
-    # def is_empty(self):
-    #     return self.items == []
+    def is_empty(self):
+        return self.items == []
 
     def peek(self):
         if not self.is_empty():
