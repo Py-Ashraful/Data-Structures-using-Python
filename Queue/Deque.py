@@ -34,18 +34,18 @@ class Deque():
         return self.items
 
 
-d = Deque()
+if __name__ == "__main__":
 
-d.addFront('A')
-d.addFront('b')
-d.addRear("C")
+    d = Deque()
 
-print(d.get_deque())
-
-# print(d.removeFront())
-# print(d.removeRear())
-print(d.get_deque())
-print(d.frontPeek())
-print(d.rearPeek())
-
-print(len(d))
+    d.addFront('A')
+    d.addFront('b')
+    d.addRear("C")
+    print(d.get_deque())
+    print(d.removeFront())
+    print(d.removeRear())
+    print(d.get_deque())
+    print(d.frontPeek())
+    print(d.rearPeek())
+    print(d.is_empty())
+    print(len(d))
