@@ -37,7 +37,6 @@ class Deque():
 if __name__ == "__main__":
 
     d = Deque()
-
     d.addFront('A')
     d.addFront('b')
     d.addRear("C")
