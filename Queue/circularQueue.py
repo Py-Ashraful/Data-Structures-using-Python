@@ -20,11 +20,11 @@ class CircularQueue():
 
     def deque(self):
 
-        if (self.fornt == -1):
+        if (self.front == -1):
             print("Queue is empty")
 
-        elif (self.fornt == self.rear):
-            de_que = self.queue[self.fornt]
+        elif (self.front == self.rear):
+            de_que = self.queue[self.front]
             self.fornt = -1
             self.rear = -1
             return de_que
@@ -40,7 +40,7 @@ class CircularQueue():
             for i in range(self.front, self.rear + 1):
                 print(self.queue[i])
         else:
-            for i in range(self.front, size):
+            for i in range(self.front, self.size):
                 print(self.queue[i])
             for i in range(0, self.rear + 1):
                 print(self.queue[i])
