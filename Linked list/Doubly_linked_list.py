@@ -21,7 +21,7 @@ class Doubly_linked_list:
         last_node.next = new_node
         new_node.prev = last_node
 
-    def append_beg(self, data):
+    def push(self, data):
         new_node = Node(data)
         if self.head is None:
             self.head = new_node
@@ -31,10 +31,26 @@ class Doubly_linked_list:
             self.head = new_node
             new_node.prev = self.head
 
+    def insert_after(self, node_value, data):
+        current_node = self.head
+        while current_node:
+            if node_value == current_node.data:
+                break
+            else:
+                current_node = current_node.next
+        if current_node is None:
+            print("value not found")
+        else:
+            new_node = Node(data)
+            new_node.prev = current_node.prev
+            new_node.next = current_node
+            current_node.prev.next = new_node
+            current_node.prev = new_node
+
     def print_list(self):
         current_node = self.head
         while current_node:
-            print(current_node.data, "-->", end=" ")
+            print(current_node.data, "<-->", end=" ")
             current_node = current_node.next
 
 
@@ -42,5 +58,6 @@ if __name__ == "__main__":
     dl = Doubly_linked_list()
     dl.append("A")
     dl.append("B")
-    dl.append_beg("C")
+    dl.push("C")
+    dl.insert_after("B", "D")
     dl.print_list()
