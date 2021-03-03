@@ -85,6 +85,17 @@ class Doubly_linked_list:
                 current_node.next = current_node.next.next
                 current_node.next.prev = current_node
 
+    def size(self):
+        count = 0
+        current_node = self.head
+        if current_node is None:
+            return count
+        else:
+            while current_node:
+                count += 1
+                current_node = current_node.next
+        return count
+
     def print_list(self):
         current_node = self.head
         while current_node:
@@ -101,6 +112,7 @@ if __name__ == "__main__":
     dl.insert_before("A", "F")
 
     dl.delete("A")
-
+    print(dl.size())
     dl.delete("B")
+    print(dl.size())
     dl.print_list()
