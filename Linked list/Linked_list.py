@@ -99,8 +99,11 @@ class LinkedList:
                 if node == current_node.data:
                     break
                 else:
+                    last_af = current_node
                     current_node = current_node.next
-            if current_node is None:
+            if last_af.next.next == None and last_af.next.data == node:
+                last_af.next = None
+            elif current_node is None:
                 print("Node is not found")
             else:
                 current_node.data = current_node.next.data
@@ -130,5 +133,6 @@ llist.append_beg("Md")
 # llist.delete("Ashraful")
 # llist.delete("Ashraful")
 # llist.revase_iter()
+# llist.delete("Islam")
 llist.printList()
 # print(list_size)

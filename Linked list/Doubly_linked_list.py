@@ -47,6 +47,44 @@ class Doubly_linked_list:
             current_node.prev.next = new_node
             current_node.prev = new_node
 
+    def insert_before(self, node_value, insert_value):
+        current_node = self.head
+        while current_node:
+            if node_value == current_node.data:
+                break
+            else:
+                current_node = current_node.next
+
+        if current_node is None:
+            print("Node value not found")
+        else:
+            new_node = Node(insert_value)
+            current_node.next.prev = new_node
+            new_node.next = current_node.next
+            current_node.next = new_node
+            new_node.prev = current_node
+
+    def delete(self, data):
+        if self.head.data == data:
+            print(self.head.data)
+            self.head = self.head.next
+        else:
+            current_node = self.head
+            while current_node is not None:
+                if current_node.data == data:
+                    break
+                else:
+                    current_node = current_node.next
+            if current_node.next == None:
+                current_node.prev.next = None
+                current_node.prev = None
+            elif current_node is None:
+                print("Node not found")
+            else:
+                current_node.data = current_node.next.data
+                current_node.next = current_node.next.next
+                current_node.next.prev = current_node
+
     def print_list(self):
         current_node = self.head
         while current_node:
@@ -60,4 +98,9 @@ if __name__ == "__main__":
     dl.append("B")
     dl.push("C")
     dl.insert_after("B", "D")
+    dl.insert_before("A", "F")
+
+    dl.delete("A")
+
+    dl.delete("B")
     dl.print_list()
