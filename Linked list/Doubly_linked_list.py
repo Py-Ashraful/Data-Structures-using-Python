@@ -21,7 +21,10 @@ class Doubly_linked_list:
         last_node.next = new_node
         new_node.prev = last_node
 
-    def push(self, data):
+
+# Insert node in the begning
+
+    def insert_beg(self, data):
         new_node = Node(data)
         if self.head is None:
             self.head = new_node
@@ -107,7 +110,7 @@ if __name__ == "__main__":
     dl = Doubly_linked_list()
     dl.append("A")
     dl.append("B")
-    dl.push("C")
+    dl.insert_beg("C")
     dl.insert_after("B", "D")
     dl.insert_before("A", "F")
 

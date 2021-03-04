@@ -8,7 +8,7 @@ class Circular_linked:
     def __init__(self):
         self.head = None
 
-    def push(self, data):
+    def insert_beg(self, data):
         new_node = Node(data)
         current_node = self.head
         new_node.next = self.head
@@ -19,8 +19,8 @@ class Circular_linked:
         else:
             while current_node.next != self.head:
                 current_node = current_node.next
-            current_node = new_node
-            self.head = new_node
+            current_node.next = new_node
+        self.head = new_node
 
     def append(self, data):
         if not self.head:
@@ -48,4 +48,5 @@ if __name__ == "__main__":
     cir.append("A")
     cir.append("D")
     cir.append("C")
+    cir.insert_beg("F")
     cir.print_list()
