@@ -34,6 +34,14 @@ class Circular_linked:
             current_node.next = new_node
             new_node.next = self.head
 
+    def remove(self, key):
+        if self.head.data == key:
+            current_node = self.head
+            while current_node.next != self.head:
+                current_node = current_node.next
+            current_node.next = self.head.next
+            self.head = self.head.next
+
     def print_list(self):
         current_node = self.head
         while current_node:
@@ -49,4 +57,5 @@ if __name__ == "__main__":
     cir.append("D")
     cir.append("C")
     cir.insert_beg("F")
+    cir.remove("F")
     cir.print_list()
