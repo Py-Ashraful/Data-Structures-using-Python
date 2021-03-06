@@ -35,25 +35,42 @@ class Circular_linked:
             new_node.next = self.head
 
     def remove(self, key):
-        current_node = self.head
-        if self.head.data == key and self.head == self.head:
-            self.head = None
+        # current_node = self.head
+        # if self.head.data == key and self.head == self.head:
+        #     self.head = None
 
-        else:
-            if self.head.data == key:
-                while current_node.next != self.head:
-                    current_node = current_node.next
-                current_node.next = self.head.next
-                self.head = self.head.next
+        # else:
+        #     if self.head.data == key:
+        #         while current_node.next != self.head:
+        #             current_node = current_node.next
+        #         current_node.next = self.head.next
+        #         self.head = self.head.next
 
+        #     while current_node.next != self.head:
+        #         if current_node.data == key:
+        #             current_node.data = current_node.next.data
+        #             current_node.next = current_node.next.next
+
+        #         elif current_node.next.next == self.head and current_node.next.data == key:
+        #             current_node.next = self.head
+        #         current_node = current_node.next
+
+        if self.head.data == key:
+            current_node = self.head
             while current_node.next != self.head:
-                if current_node.data == key:
-                    current_node.data = current_node.next.data
-                    current_node.next = current_node.next.next
-
-                elif current_node.next.next == self.head and current_node.next.data == key:
-                    current_node.next = self.head
                 current_node = current_node.next
+            current_node.next = self.head.next
+            self.head = self.head.next
+        else:
+            current_node = self.head
+            preve_node = None
+            while current_node.next != self.head:
+                preve_node = current_node
+                current_node = current_node.next
+
+                if current_node.data == key:
+                    preve_node.next = current_node.next
+                    current_node = current_node.next
 
     def print_list(self):
         current_node = self.head
