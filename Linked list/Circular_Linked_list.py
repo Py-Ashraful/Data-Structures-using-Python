@@ -55,22 +55,25 @@ class Circular_linked:
         #             current_node.next = self.head
         #         current_node = current_node.next
 
-        if self.head.data == key:
-            current_node = self.head
-            while current_node.next != self.head:
-                current_node = current_node.next
-            current_node.next = self.head.next
-            self.head = self.head.next
+        if self.head.data == key and self.head.next == self.head:
+            self.head = None
         else:
-            current_node = self.head
-            preve_node = None
-            while current_node.next != self.head:
-                preve_node = current_node
-                current_node = current_node.next
-
-                if current_node.data == key:
-                    preve_node.next = current_node.next
+            if self.head.data == key:
+                current_node = self.head
+                while current_node.next != self.head:
                     current_node = current_node.next
+                current_node.next = self.head.next
+                self.head = self.head.next
+            else:
+                current_node = self.head
+                preve_node = None
+                while current_node.next != self.head:
+                    preve_node = current_node
+                    current_node = current_node.next
+
+                    if current_node.data == key:
+                        preve_node.next = current_node.next
+                        current_node = current_node.next
 
     def print_list(self):
         current_node = self.head
@@ -90,7 +93,7 @@ if __name__ == "__main__":
     cir.remove("F")
     # cir.remove("C")
     # cir.remove("D")
-    cir.remove("C")
-    cir.remove("D")
-    cir.remove("A")
+    # cir.remove("C")
+    # cir.remove("D")
+    # cir.remove("A")
     cir.print_list()
