@@ -35,25 +35,6 @@ class Circular_linked:
             new_node.next = self.head
 
     def remove(self, key):
-        # current_node = self.head
-        # if self.head.data == key and self.head == self.head:
-        #     self.head = None
-
-        # else:
-        #     if self.head.data == key:
-        #         while current_node.next != self.head:
-        #             current_node = current_node.next
-        #         current_node.next = self.head.next
-        #         self.head = self.head.next
-
-        #     while current_node.next != self.head:
-        #         if current_node.data == key:
-        #             current_node.data = current_node.next.data
-        #             current_node.next = current_node.next.next
-
-        #         elif current_node.next.next == self.head and current_node.next.data == key:
-        #             current_node.next = self.head
-        #         current_node = current_node.next
 
         if self.head.data == key and self.head.next == self.head:
             self.head = None
