@@ -70,17 +70,31 @@ class BinarySearchTree:
             if node.right:
                 queue.append(node.right)
 
+    def hight(self):
+        return self._hight(self.root)
+
+    def _hight(self, current_node):
+        if current_node is None:
+            return 0
+        left_hight = self._hight(current_node.left)
+        right_hight = self._hight(current_node.right)
+
+        if left_hight > right_hight:
+            return left_hight+1
+        else:
+            return right_hight + 1
+
 
 if __name__ == "__main__":
 
     bt = BinarySearchTree()
-    # bt.insert(41)
-    # bt.insert(20)
-    # bt.insert(65)
-    # bt.insert(11)
-    # bt.insert(29)
-    # bt.insert(50)
-    # bt.insert(91)
+    bt.insert(41)
+    bt.insert(20)
+    bt.insert(65)
+    bt.insert(11)
+    bt.insert(29)
+    bt.insert(50)
+    bt.insert(91)
     bt.printTree("Inorder")
     print()
     bt.printTree("preorder")
@@ -88,3 +102,5 @@ if __name__ == "__main__":
     bt.printTree("postorder")
     print()
     bt.printTree("levelorder")
+    print()
+    print(bt.hight())
