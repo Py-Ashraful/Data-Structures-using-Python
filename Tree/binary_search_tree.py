@@ -29,13 +29,29 @@ class BinarySearchTree:
 
     def printTree(self, traversal_method):
         if traversal_method == "Inorder":
-            self._printTree(self.root)
+            self._inorder(self.root)
+        elif traversal_method == "preorder":
+            self._preorder(self.root)
+        elif traversal_method == "postorder":
+            self._postorder(self.root)
 
-    def _printTree(self, current_node):
+    def _inorder(self, current_node):
         if current_node:
-            self._printTree(current_node.left)
+            self._inorder(current_node.left)
             print(current_node.data)
-            self._printTree(current_node.right)
+            self._inorder(current_node.right)
+
+    def _preorder(self, current_node):
+        if current_node:
+            print(current_node.data)
+            self._preorder(current_node.left)
+            self._preorder(current_node.right)
+
+    def _postorder(self, current_node):
+        if current_node:
+            self._postorder(current_node.left)
+            self._postorder(current_node.right)
+            print(current_node.data)
 
 
 if __name__ == "__main__":
@@ -47,3 +63,5 @@ if __name__ == "__main__":
     bt.insert(24)
     bt.insert(45)
     bt.printTree("Inorder")
+    bt.printTree("preorder")
+    bt.printTree("postorder")
