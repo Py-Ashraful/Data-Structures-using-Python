@@ -34,6 +34,8 @@ class BinarySearchTree:
             self._preorder(self.root)
         elif traversal_method == "postorder":
             self._postorder(self.root)
+        elif traversal_method == "levelorder":
+            self._levelorder(self.root)
 
     def _inorder(self, current_node):
         if current_node:
@@ -53,15 +55,36 @@ class BinarySearchTree:
             self._postorder(current_node.right)
             print(current_node.data)
 
+    def _levelorder(self, current_node):
+        if current_node is None:
+            return
+
+        queue = []
+        queue.append(current_node)
+        while len(queue) > 0:
+            print(queue[0].data)
+            node = queue.pop(0)
+
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+
 
 if __name__ == "__main__":
 
     bt = BinarySearchTree()
-    bt.insert(51)
-    bt.insert(40)
-    bt.insert(333)
-    bt.insert(24)
-    bt.insert(45)
+    # bt.insert(41)
+    # bt.insert(20)
+    # bt.insert(65)
+    # bt.insert(11)
+    # bt.insert(29)
+    # bt.insert(50)
+    # bt.insert(91)
     bt.printTree("Inorder")
+    print()
     bt.printTree("preorder")
+    print()
     bt.printTree("postorder")
+    print()
+    bt.printTree("levelorder")
