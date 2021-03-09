@@ -84,6 +84,27 @@ class BinarySearchTree:
         else:
             return right_hight + 1
 
+    def size(self):
+        return self._size(self.root)
+
+    def _size(self, current_node):
+        if current_node is None:
+            return 0
+
+        stack = []
+        stack.append(current_node)
+        size = 1
+        while stack:
+            node = stack.pop()
+            if node.left:
+                size = size + 1
+                stack.append(node.left)
+
+            if node.right:
+                size = size + 1
+                stack.append(node.right)
+        return size
+
 
 if __name__ == "__main__":
 
@@ -104,3 +125,5 @@ if __name__ == "__main__":
     bt.printTree("levelorder")
     print()
     print(bt.hight())
+    print()
+    print(bt.size())
